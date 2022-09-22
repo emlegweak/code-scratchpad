@@ -2,24 +2,74 @@
  * 
 
  */
+@use 'sass:math';
 
-@import "./partials/_normalize";
-@import "./partials/_variables";
+@function rem($pixel){
+//if divide pixel by 16 to return rems 
+@if math.is-unitless($pixel){
+   @return math.div($pixel, 16) + rem;
+}
+//else if $pixel has a unit, throw an error
+   @else{
+      @error "Error: don't use units when using the rem() function. Only numbers allowed."
+   }
+}
 
-
-main { height:100vh; display:flex; align-items: center; justify-content: center; background:$pink;
-  h1 { font-size:clamp(2rem,8vw,9rem); text-align: center; color:$black; }
+@function em($pixel){
+   @if math.is-unitless($pixel){
+      @return math.div($pixel, 16) + em;
+   }
+   @else{
+      @error "Error, don't use units when using the em() function. Only numbers allowed."
+   }
 }
 
 
-/* If you plan on using TAILWIND
- * 1. delete everything above
- * 2. uncomment the @tailwind partials below
- * 3. rename this file index.css
- **/
+$background-color:#DBEAFE;
+$hover-color:#60A5FA;
+$button-white-color: #fff;
+$button-blue-color: #1E40AF;
+$confirmation-color: #1E40AF;
 
-/*
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-*/
+$h1-font-size: rem(28);
+$h2-font-size: rem(18);
+
+body{
+    font-family: Arial, sans-serif;
+}
+
+.container{
+  background-color: $background-color;
+  width: rem(575);
+  height: rem(585);
+  margin: rem(50);
+  padding: rem(20);
+}
+
+h1{
+  font-size: $h1-font-size;
+  border-bottom: 1px solid black;
+  padding-bottom: rem(13);
+}
+
+h2{
+  font-size: $h2-font-size;
+}
+
+.textinput{
+  padding: rem(10);
+  margin-bottom: rem(30);
+}
+
+.shirt-size{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+label{
+  flex-basis: 50%;
+}
+
+label input{
+    padding: rem(20)
+}

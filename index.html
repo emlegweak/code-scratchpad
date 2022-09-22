@@ -6,10 +6,49 @@
         <link rel="stylesheet" type="text/css" href="src/css/index.css" />
     </head>
     <body>
-        <main>
-            <!-- TODO: delete the following div and get going! -->
-            <h1 class="text-center">Savas Code Scratchpad</h1>
-        </main>
+      
+        <div class="container">
+            <h1>T-Shirt Form</h1>
+            <form>
+            <input class="textinput" type="text" id="name" placeholder="Enter your name...">
+            <input class="textinput" type="number" placeholder="Quantity of Shirts">
+
+            <h2>Your Shirt Size</h2>
+
+            <div class="shirt-size">
+            <label for="small">
+                 <input type="radio" name="size" id="small" value="small">
+                    Small
+            </label>
+            <label for="medium">
+                <input type="radio" name="size" id="medium" value="medium">
+                Medium  
+                </label>
+            <label for="large">
+                <input type="radio" name="size" id="large" value="large">
+                Large
+            </label>
+            <label for="xl">
+                <input type="radio" name="size" id="xl" value="xl">
+                Extra Large
+            </label>
+            <label for="2x">
+            <input type="radio" name="size" id="2x" value="2x">
+                Double XL
+                </label>
+            </div>
+
+            <select name="tshirt" id="tshirt">
+                <option value="default" default>Select a shirt type...</option>
+                <option value="shortsleeve">Short Sleeve</option>
+                <option value="longsleeve">Long Sleeve</option>
+                <option value="vneck">V Neck</option>
+                <option value="tanktop">Tank top</option>
+            </select>
+            <a href="#" class="button button-white">Clear Fields</a>
+            <a href="#" class="button button-blue">Submit</a>
+            </form>
+        </div>
 
         <script type="module" src="/src/js/index.js"></script>
     </body>
